@@ -1,5 +1,164 @@
+<!-- 01 - 선언형 코드 
+ <html>
+    <body>
+        <div id="app"></div>
+        <script type="text/javascript">
+            const app = document.getElementById('app');
+            const header = document.createElement('h1');
+            const headerContent = document.createTextNode(
+                'Develop. Preview. Ship. 🚀 '
+            );
+
+            header.appendChild(headerContent);
+
+            app.appendChild(header);
+        </script>
+    </body>
+</html> -->
+<!-- 02 - 명령형 코드 -->
+<!-- 
 <html>
     <body>
-        <div
+        <div id="app"></div>
+        // 리엑트 관련 스크립트
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        // 리엑트-DOM 관련 스크립트 
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        // 바벨 관련 스크립트 
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+            ReactDOM.render(
+                <h1>Develop. Preview. Ship. 🚀</h1>
+            , app)
+        </script>
     </body>
-</html>
+</html> 
+-->
+<!-- props 사용
+<html>
+    <body>
+        <div id="app"></div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+            
+            function Header(props) {
+                console.log(props)
+                return (
+                    <h1>{props.title}</h1>
+                )
+            }
+            function HomePage() {
+                return (
+                    <div>
+                        <Header title="React 🌠"/>
+                        homepage
+                    </div>
+                )
+            }
+
+            ReactDOM.render(<HomePage/> , app)
+        </script>
+    </body>
+</html>  
+-->
+
+<!--
+<html>
+    <body>
+        <div id="app"></div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+            
+            function createTitle (title) {
+                if (title) {
+                    return title;
+                } else {
+                    return 'Default Title'
+                }
+            };
+            
+
+            function Header({title}) {
+                console.log(title)
+                return (
+                    <>
+                        <h1>{createTitle(title)}</h1>
+                        <h1>{createTitle('title2')}</h1>
+                        <h1>{createTitle()}</h1>
+
+                        <h1>{title ? title : 'Default Title'}</h1>
+                    </>
+                    
+                )
+            }
+            function Page() {
+                return (
+                    <div>
+                        <Header title="React 🌠"/>
+                        <Header title="Next 🌠"/>
+                        homepage
+                    </div>
+                )
+            }
+
+            ReactDOM.render(<Page/> , app)
+        </script>
+    </body>
+</html> 
+-->
+
+<html>
+    <body>
+        <div id="app"></div>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> 
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+
+            function Header ({title}) {
+                return (
+                    <>
+                        <h1>{title}</h1>
+                    </>
+                )
+            }
+
+            function Page () {
+                const [count, setCount] = React.useState(0);
+
+                const likeClick = () => {
+                    setCount(count+1);
+                }
+                const noLikeClick = () => {
+                    setCount(count-1);
+                }
+                const names = ['name1', 'name2', 'name3']
+                return (
+                    <>
+                        <Header title="next"/>
+                        <ul>
+                            {names.map((name) => (
+                                <li key={name}> {name} </li>
+                            ))}
+                        </ul>
+                        <div>{count}</div>
+                        <button onClick={()=>{likeClick()}}>Like</button>
+                        <button onClick={()=>{noLikeClick()}}>NoLike</button>
+                    </>
+                )
+            }
+
+            ReactDOM.render(
+                <Page/>
+            , app)
+        </script>
+    </body>
+</html> 
