@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 
 
 const Home:NextPage = () => {
+    const router= useRouter()
     return (
         <>
             <ul>
@@ -22,6 +24,9 @@ const Home:NextPage = () => {
                     </Link>
                 </li>
             </ul>
+            <button onClick={()=>router.push('/board')}>
+                board
+            </button>
         </>
     )
 }
