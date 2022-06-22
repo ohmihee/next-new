@@ -6,3 +6,9 @@ https://nextjs.org/docs/api-reference/next/router
 
 참고 블로그 
 https://melvingeorge.me/blog/progressive-image-loading
+https://github.com/melvin2016?tab=repositories
+https://blog.logrocket.com/using-next-js-with-typescript/#using-typescript-in-a-nextjs-app
+https://theodorusclarence.com/blog/nextjs-fetch-method
+바벨 : https://babeljs.io/
+
+vercel https://vercel.com/docs/concepts/projects/overview
